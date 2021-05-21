@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <button id="sepatevar">Seprate var</button>
+    </div>
+  </body>
+  <script>
+    (function(){
+       document.getElementById("sepatevar").onclick=(function () {
+           console.log("test");
+        const arr = Array.apply(null, { length: 100 }).map((val, index) => {
+          return index + 1;
+        });
+        const evenNumbers = arr.filter((num) => num % 2 == 0);
+
+        var ul = document.createElement("ul");
+        document.body.appendChild(ul);
+        for (var i = 1; i <= 30; i++) {
+          var li = document.createElement("li");
+          li.appendChild(document.createTextNode(evenNumbers));
+          ul.appendChild(li);
+        }
+      });
+    })()
+      
+  </script>
+</html>
